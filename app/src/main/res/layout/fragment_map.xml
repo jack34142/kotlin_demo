@@ -1,0 +1,76 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.jyun_yi.kotlin_demo.ui.fragments.map.MapViewModel" />
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.jyun_yi.kotlin_demo.ui.components.MyAppBar
+            android:id="@+id/map_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/map">
+            <ImageButton
+                android:id="@+id/map_btn_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/baseline_search_24"
+                android:onClick="@{ () -> viewModel.updateSearching() }"/>
+            <ImageButton
+                android:id="@+id/map_btn_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/baseline_refresh_24"/>
+        </com.jyun_yi.kotlin_demo.ui.components.MyAppBar>
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/map_app_bar"/>
+
+        <LinearLayout
+            android:id="@+id/map_search_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/map_app_bar"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="@{viewModel.searching ? View.VISIBLE : View.GONE}"
+            android:onClick="@{ () -> viewModel.updateSearching() }">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/bg">
+
+                <EditText
+                    android:id="@+id/map_search_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/map_search_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="420dp"
+                    tools:listitem="@layout/item_parking_search"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

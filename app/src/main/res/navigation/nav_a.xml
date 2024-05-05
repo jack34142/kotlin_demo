@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_a"
+    app:startDestination="@id/route_a_map">
+
+    <fragment
+        android:id="@+id/route_a_map"
+        android:name="com.jyun_yi.kotlin_demo.ui.fragments.map.MapFragment"
+        tools:layout="@layout/fragment_map"/>
+</navigation>

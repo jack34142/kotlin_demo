@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/tab_a"
+        android:title="@string/map"
+        android:icon="@drawable/baseline_map_24"/>
+    <item android:id="@+id/tab_b"
+        android:title="@string/search"
+        android:icon="@drawable/baseline_search_24" />
+    <item android:id="@+id/tab_c"
+        android:title="@string/member"
+        android:icon="@drawable/baseline_person_24"/>
+</menu>

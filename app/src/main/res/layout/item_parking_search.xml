@@ -1,0 +1,40 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="ParkingLocation"/>
+        <variable
+            name="onClick"
+            type="Function1&lt;ParkingLocation, Unit>"/>
+        <import type="com.jyun_yi.kotlin_demo.models.ParkingLocation" />
+        <import type="kotlin.jvm.functions.Function1" />
+        <import type="kotlin.Unit" />
+    </data>
+    <LinearLayout
+        android:id="@+id/item_search_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="2dp"
+        android:orientation="vertical"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{(v) -> onClick.invoke(item) }">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="@{item.name}"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="@{item.address}"/>
+    </LinearLayout>
+</layout>
